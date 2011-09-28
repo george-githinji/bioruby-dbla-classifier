@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "bio-dbla-classifier"
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George Githinji"]
   s.date = "2011-09-28"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Allow classifications of DBL-alpha proteins sequence tags using the CysPolv \n                       approach described by Bull et al 2005"
   s.email = "georgkam@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -20,42 +20,45 @@ Gem::Specification.new do |s|
     ".document",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "bio-dbla-classifier.gemspec",
     "lib/bio-dbla-classifier.rb",
+    "lib/bio/sequence/aa/dbla.rb",
     "spec/bio-dbla-classifier_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/georgeG/bioruby-dbla-classifier"
-  s.licenses = ["MIT"]
+  s.licenses = ["Ruby"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Classify PfEMP1 DBL-alpha tags using cysPolV method"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<bio>, [">= 1.4.2"])
       s.add_development_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<bio>, [">= 1.4.2"])
     else
+      s.add_dependency(%q<bio>, [">= 1.4.2"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<bio>, [">= 1.4.2"])
     end
   else
+    s.add_dependency(%q<bio>, [">= 1.4.2"])
     s.add_dependency(%q<rspec>, ["~> 2.3.0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<bio>, [">= 1.4.2"])
   end
 end
 
