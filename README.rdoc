@@ -1,7 +1,7 @@
 = bio-dbla-classifier
 
-DBL-alpha tags can be classified into six groups depending on the number of cysteines and presenced of 
-sequence motifs REY and MFK. This plugin extends the Bio::Sequence::AA class by adding methods for grouping the tags.
+ DBL-alpha tags can be classified into six groups depending on the number of cysteines and presenced of 
+ sequence motifs REY and MFK. This plugin extends the Bio::Sequence::AA class by adding methods for grouping the tags.
 
 = Installation
  
@@ -13,6 +13,41 @@ sequence motifs REY and MFK. This plugin extends the Bio::Sequence::AA class by 
 
 = Usage
 
+ #create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
+ #to classify and describe Dbla properties
+ seq = Dbla.new('DIGDIVRGRDMFKSNDDVEKGLKVVFKKIYKSLPSPAKSHYADHDKSGNYYKLREHWWIVNRKQLWEAITCIAPRDAHYFLKSSPDFKSFSDRKCGHYEGAPPTYLDYVPQYLR')
+
+ #get the positions of limited variability
+ puts seq.polv1
+ puts seq.polv2
+ puts seq.polv3
+ puts seq.polv4
+
+ #get the distinct sequence identifier
+ puts seq.dsid
+
+ #get the cyspolv group for this tag
+ puts seq.group
+
+ #get the number if cysteines in the tag
+ puts seq.cys_count
+
+ #get the block sharing group for this tag
+ #puts seq.bs_group
+ 
+ #get the length of the tag
+ #puts seq.size
+
+ #if input file is a fasta file
+ seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+
+ #read the file
+ Bio::FlatFile.open(seq_file).each do |entry|
+  puts  entry.definition
+  tag = Dbla.new(entry.seq)
+  puts tag.dsid
+  puts tag.get_group
+ end
 = Copyright
 
 Copyright (c) 2011 George Githinji. See LICENSE.txt for further details.
