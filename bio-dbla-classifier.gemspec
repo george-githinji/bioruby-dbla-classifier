@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George Githinji"]
   s.date = "2011-09-28"
-  s.description = "Allow classifications of DBL-alpha proteins sequence tags using the CysPolv \n                       approach described by Bull et al 2005"
+  s.description = "A classification system for DBL-alpha sequence tags using the CysPolv approach described by Bull et al 2005"
   s.email = "georgkam@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.licenses = ["Ruby"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
-  s.summary = "Classify PfEMP1 DBL-alpha tags using cysPolV method"
+  s.summary = "Classify PfEMP1 DBL-alpha tags using cysPolV approach"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
