@@ -17,9 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "bio-dbla-classifier"
   gem.homepage = "http://github.com/georgeG/bioruby-dbla-classifier"
   gem.license = "Ruby"
-  gem.summary = %Q{Classify PfEMP1 DBL-alpha tags using cysPolV method}
-  gem.description = %Q{Allow classifications of DBL-alpha proteins sequence tags using the CysPolv 
-                       approach described by Bull et al 2005}
+  gem.summary = %Q{Classify PfEMP1 DBL-alpha tags using cysPolV approach}
+  gem.description = %Q{A classification system for DBL-alpha sequence tags using the CysPolv approach described by Bull et al 2005}
   gem.email = "georgkam@gmail.com"
   gem.authors = ["George Githinji"]
   # dependencies defined in Gemfile
