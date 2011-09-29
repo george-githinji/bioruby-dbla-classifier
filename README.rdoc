@@ -1,7 +1,8 @@
 = bio-dbla-classifier
 
- DBL-alpha tags can be classified into six groups depending on the number of cysteines and presenced of 
- sequence motifs REY and MFK. This plugin extends the Bio::Sequence::AA class by adding methods for grouping the tags.
+DBL-alpha tags can be classified into six expression groups depending on the number of cysteines and presence of 
+sequence certain motifs within the tag region (Bull et al 2005). DBLa adds methods for grouping DBL-alpha amino acid sequence tags.
+The DBLa class is a subclass of Bio::Sequence::AA
 
 = Installation
  
