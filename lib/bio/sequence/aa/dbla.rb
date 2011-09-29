@@ -30,9 +30,7 @@ class Dbla < Bio::Sequence::AA
  def polv2
   if self =~ /WW/
    polv2 = self[ww_pos - 4,4]
-   [ww_pos + 10,4]
   else
-   #self =~ /VW/
    polv2 = self[vw_pos - 12,4]
   end
   polv2
@@ -40,7 +38,12 @@ class Dbla < Bio::Sequence::AA
 
  #The third position of limited variability(polv3)
  def polv3
-  self[vw_pos + 2,4] if self =~ /VW/
+  if self =~ /VW/
+   polv3 = self[vw_pos + 2,4]
+  else
+   polv3 = self[ww_pos + 10,4] 
+  end
+  polv3
  end
  
  #The fourth position of limited variability(polv4)
@@ -50,14 +53,14 @@ class Dbla < Bio::Sequence::AA
 
  #Assigning dsid group based on cysteines coun and presence of
  #REY motif in polv2, MFK in polv1,
- def dsid_group
+ def get_group
   case
    when cys_count > 4 || cys_count == 3 || cys_count < 2
     group = 6
    when cys_count == 4 && polv2 =~ /REY/i
     group = 5
    when cys_count == 4
-    group =4
+    group = 4
    when cys_count == 2 && polv1 =~ /MFK/i
     group = 1
    when cys_count == 2 && polv2 =~ /REY/i
@@ -87,16 +90,38 @@ class Dbla < Bio::Sequence::AA
  #end
 end
 
+#create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
+#to classify and describe Dbla properties
+#seq = Dbla.new('DIGDIVRGRDMFKSNDDVEKGLKVVFKKIYKSLPSPAKSHYADHDKSGNYYKLREHWWIVNRKQLWEAITCIAPRDAHYFLKSSPDFKSFSDRKCGHYEGAPPTYLDYVPQYLR')
 
-seq = Dbla.new('DIGDIVRGRDMFKSNDDVEKGLKVVFKKIYKSLPSPAKSHYADHDKSGNYYKLREHWWIVNRKQLWEAITCIAPRDAHYFLKSSPDFKSFSDRKCGHYEGAPPTYLDYVPQYLR')
+#get the positions of limited variability
+#puts seq.polv1
+#puts seq.polv2
+#puts seq.polv3
+#puts seq.polv4
 
-puts seq.polv1
-puts seq.polv2
-puts seq.polv3
-puts seq.polv4
-puts seq.dsid_group
+#get the distinct sequence identifier
+#puts seq.dsid
 
-puts seq.cys_count
-puts seq.dsid
+#get the cyspolv group for this tag
+#puts seq.get_group
 
+#get the number if cysteines in the tag
+#puts seq.cys_count
 
+#get the block sharing group for this tag
+#puts seq.bs_group
+
+#get the length of the tag
+#puts seq.size
+
+#if input file is a fasta file
+ #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+
+#read the file
+ #Bio::FlatFile.open(seq_file).each do |entry|
+  #puts  entry.definition
+  #tag = Dbla.new(entry.seq)
+  #puts tag.dsid
+  #puts tag.get_group
+ #end
