@@ -94,7 +94,7 @@ end
 
 
 #get the block sharing group for this tag
-#puts seq.bs_group
+#puts seq.bs_group #to be implemented
 
 #get the length of the tag
 #puts seq.size
