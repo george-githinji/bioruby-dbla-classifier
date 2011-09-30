@@ -30,18 +30,20 @@ class Dbla < Bio::Sequence::AA
  def polv2
   if self =~ /WW/
    polv2 = self[ww_pos - 4,4]
-  else
+  elsif self =~ /VW/
    polv2 = self[vw_pos - 12,4]
+  else
   end
   polv2
  end
 
  #The third position of limited variability(polv3)
  def polv3
-  if self =~ /VW/
+  if self =~ /WW/
+   polv3 = self[ww_pos + 10,4] 
+  elsif self =~ /VW/
    polv3 = self[vw_pos + 2,4]
   else
-   polv3 = self[ww_pos + 10,4] 
   end
   polv3
  end
@@ -92,22 +94,24 @@ end
 
 #create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
 #to classify and describe Dbla properties
-#seq = Dbla.new('DIGDIVRGRDMFKSNDDVEKGLKVVFKKIYKSLPSPAKSHYADHDKSGNYYKLREHWWIVNRKQLWEAITCIAPRDAHYFLKSSPDFKSFSDRKCGHYEGAPPTYLDYVPQYLR')
 
+seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
+seq = Dbla.new(seq1)
 #get the positions of limited variability
-#puts seq.polv1
-#puts seq.polv2
-#puts seq.polv3
-#puts seq.polv4
-
-#get the distinct sequence identifier
-#puts seq.dsid
-
-#get the cyspolv group for this tag
-#puts seq.get_group
+puts seq.polv1
+puts seq.polv2
+puts seq.polv3
+puts seq.polv4
 
 #get the number if cysteines in the tag
-#puts seq.cys_count
+puts seq.cys_count
+
+#get the distinct sequence identifier
+puts seq.dsid
+
+#get the cyspolv group for this tag
+puts seq.get_group
+
 
 #get the block sharing group for this tag
 #puts seq.bs_group
