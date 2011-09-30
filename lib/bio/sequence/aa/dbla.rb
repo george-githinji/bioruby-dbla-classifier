@@ -95,23 +95,23 @@ end
 #create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
 #to classify and describe Dbla properties
 
-seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
-seq = Dbla.new(seq1)
+#seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
+#seq = Dbla.new(seq1)
 
 #get the positions of limited variability
-puts seq.polv1
-puts seq.polv2
-puts seq.polv3
-puts seq.polv4
+#puts seq.polv1
+#puts seq.polv2
+#puts seq.polv3
+#puts seq.polv4
 
 #get the number if cysteines in the tag
-puts seq.cys_count
+#puts seq.cys_count
 
 #get the distinct sequence identifier
-puts seq.dsid
+#puts seq.dsid
 
 #get the cyspolv group for this tag
-puts seq.cyspolv_group
+#puts seq.cyspolv_group
 
 
 #get the block sharing group for this tag
@@ -121,10 +121,10 @@ puts seq.cyspolv_group
 #puts seq.size
 
 #if input file is a fasta file
- seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+ #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
 
 #read the file
- Bio::FlatFile.open(seq_file).each do |entry|
-  tag = Dbla.new(entry.seq)
-  puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
- end
+ #Bio::FlatFile.open(seq_file).each do |entry|
+  #tag = Dbla.new(entry.seq)
+  #puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
+ #end
