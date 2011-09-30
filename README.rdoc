@@ -51,5 +51,5 @@ The DBLa class is a subclass of Bio::Sequence::AA
  end
 = Copyright
 
-Copyright (c) 2011 George Githinji. See LICENSE.txt for further details.
+See LICENSE.txt for further details.
 
