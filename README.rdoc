@@ -14,6 +14,8 @@ Bull et al “An approach to classifying sequence tags sampled from Plasmodium f
  gem uninstall bio-dbla-classifier
 
 = Usage
+ require 'bio'
+ require 'bio-dbla-classifier'
 
  #create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
  #to classify and describe Dbla properties
