@@ -55,7 +55,7 @@ class Dbla < Bio::Sequence::AA
 
  #Assigning dsid group based on cysteines coun and presence of
  #REY motif in polv2, MFK in polv1,
- def get_group
+ def cyspolv_group
   case
    when cys_count > 4 || cys_count == 3 || cys_count < 2
     group = 6
@@ -97,6 +97,7 @@ end
 
 seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
 seq = Dbla.new(seq1)
+
 #get the positions of limited variability
 puts seq.polv1
 puts seq.polv2
@@ -110,7 +111,7 @@ puts seq.cys_count
 puts seq.dsid
 
 #get the cyspolv group for this tag
-puts seq.get_group
+puts seq.cyspolv_group
 
 
 #get the block sharing group for this tag
@@ -120,12 +121,10 @@ puts seq.get_group
 #puts seq.size
 
 #if input file is a fasta file
- #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+ seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
 
 #read the file
- #Bio::FlatFile.open(seq_file).each do |entry|
-  #puts  entry.definition
-  #tag = Dbla.new(entry.seq)
-  #puts tag.dsid
-  #puts tag.get_group
- #end
+ Bio::FlatFile.open(seq_file).each do |entry|
+  tag = Dbla.new(entry.seq)
+  puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
+ end
