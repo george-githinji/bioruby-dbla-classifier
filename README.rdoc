@@ -1,57 +1,58 @@
 = bio-dbla-classifier
 
-DBL-alpha tags can be classified into six expression groups depending on the number of cysteines and presence of 
+DBL-alpha tags can be classified into six expression groups depending on the number of cysteines and presence of
 sequence certain motifs within the tag region (Bull et al 2007). DBLa adds methods for grouping DBL-alpha amino acid sequence tags.
 The DBLa class is a subclass of Bio::Sequence::AA. If you apply this method please quote this article
 Bull et al “An approach to classifying sequence tags sampled from Plasmodium falciparum var genes..” Molecular and Biochemical Parasitology 154 (1) (July): 98–102. doi:10.1016/j.molbiopara.2007.03.011.
 
 = Installation
- 
+
  gem install bio-dbla-classifier
 
 = Uninstall
- 
+
  gem uninstall bio-dbla-classifier
 
 = Usage
- require 'bio'
  require 'bio-dbla-classifier'
 
- #create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
- #to classify and describe Dbla properties
- seq = Dbla.new('DIGDIVRGRDMFKSNDDVEKGLKVVFKKIYKSLPSPAKSHYADHDKSGNYYKLREHWWIVNRKQLWEAITCIAPRDAHYFLKSSPDFKSFSDRKCGHYEGAPPTYLDYVPQYLR')
+#create an instace of a new Bio::Sequence::AA class. This class simply extends the Bio::Sequence::AA class with methods
+#to classify and describe Dbla tags.
 
- #get the positions of limited variability
- puts seq.polv1
- puts seq.polv2
- puts seq.polv3
- puts seq.polv4
+#seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
+#seq = Bio::Sequence::AA.new(seq1)
 
- #get the distinct sequence identifier
- puts seq.dsid
+#get the positions of limited variability
+#puts seq.polv1
+#puts seq.polv2
+#puts seq.polv3
+#puts seq.polv4
 
- #get the cyspolv group for this tag
- puts seq.group
+#get the number if cysteines in the tag
+#puts seq.cys_count
 
- #get the number if cysteines in the tag
- puts seq.cys_count
+#get the distinct sequence identifier
+#puts seq.dsid
 
- #get the block sharing group for this tag
- #puts seq.bs_group
- 
- #get the length of the tag
- #puts seq.size
+#get the cyspolv group for this tag
+#puts seq.cyspolv_group
 
- #if input file is a fasta file
- seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
 
- #read the file
- Bio::FlatFile.open(seq_file).each do |entry|
-  puts  entry.definition
-  tag = Dbla.new(entry.seq)
-  puts tag.dsid
-  puts tag.get_group
- end
+#get the block sharing group for this tag
+#puts seq.bs_group #to be implemented
+
+#get the length of the tag
+#puts seq.size
+
+#if input file is a fasta file
+ #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+
+#read the file
+ #Bio::FlatFile.open(seq_file).each do |entry|
+  #tag = Bio::Sequence::AA.new(entry.seq)
+  #puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
+ #end
+
 = Copyright
 
 See LICENSE.txt for further details.
