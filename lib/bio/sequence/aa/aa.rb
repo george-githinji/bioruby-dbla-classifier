@@ -1,5 +1,9 @@
 class Bio::Sequence::AA
 
+ def has_accepted_length?
+   true if accepted_length.include? self.length
+ end
+
  def dsid
    "#{polv1}-#{polv2}-#{polv3}-#{cys_count.to_s}-#{polv4}-#{self.length}"
  end
@@ -68,6 +72,13 @@ class Bio::Sequence::AA
   end
   group
  end
+
+ private
+
+ def accepted_length
+   100..168
+ end
+
 end
 
 
