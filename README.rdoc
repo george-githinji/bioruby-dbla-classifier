@@ -16,38 +16,38 @@ Bull et al “An approach to classifying sequence tags sampled from Plasmodium f
 = Usage
  require 'bio-dbla-classifier'
 
-#create an instace of a new Bio::Sequence::AA class. This class simply extends the Bio::Sequence::AA class with methods
-#to classify and describe Dbla tags.
+ #create an instace of a new Bio::Sequence::AA class. This class simply extends the Bio::Sequence::AA class with methods
+ #to classify and describe Dbla tags.
 
-#seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
-#seq = Bio::Sequence::AA.new(seq1)
+ #seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
+ #seq = Bio::Sequence::AA.new(seq1)
 
-#get the positions of limited variability
-#puts seq.polv1
-#puts seq.polv2
-#puts seq.polv3
-#puts seq.polv4
+ #get the positions of limited variability
+ #puts seq.polv1
+ #puts seq.polv2
+ #puts seq.polv3
+ #puts seq.polv4
 
-#get the number if cysteines in the tag
-#puts seq.cys_count
+ #get the number if cysteines in the tag
+ #puts seq.cys_count
 
-#get the distinct sequence identifier
-#puts seq.dsid
+ #get the distinct sequence identifier
+ #puts seq.dsid
 
-#get the cyspolv group for this tag
-#puts seq.cyspolv_group
+ #get the cyspolv group for this tag
+ #puts seq.cyspolv_group
 
 
-#get the block sharing group for this tag
-#puts seq.bs_group #to be implemented
+ #get the block sharing group for this tag
+ #puts seq.bs_group #to be implemented
 
-#get the length of the tag
-#puts seq.size
+ #get the length of the tag
+ #puts seq.size
 
-#if input file is a fasta file
- #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+ #if input file is a fasta file
+ #seq_file = "sequences.fasta"
 
-#read the file
+ #read the file
  #Bio::FlatFile.open(seq_file).each do |entry|
   #tag = Bio::Sequence::AA.new(entry.seq)
   #puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
