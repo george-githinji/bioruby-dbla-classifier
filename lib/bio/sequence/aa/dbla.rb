@@ -1,4 +1,4 @@
-class Dbla < Bio::Sequence::AA
+class Bio::Sequence::AA
 
  def dsid
    "#{polv1}-#{polv2}-#{polv3}-#{cys_count.to_s}-#{polv4}-#{self.length}"
@@ -36,14 +36,14 @@ class Dbla < Bio::Sequence::AA
  #The third position of limited variability(polv3)
  def polv3
   if self =~ /WW/
-   polv3 = self[ww_pos + 10,4] 
+   polv3 = self[ww_pos + 10,4]
   elsif self =~ /VW/
    polv3 = self[vw_pos + 2,4]
   else
   end
   polv3
  end
- 
+
  #The fourth position of limited variability(polv4)
  def polv4
   self[self.length - 12,4]
@@ -75,7 +75,7 @@ end
 #to classify and describe Dbla properties
 
 #seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
-#seq = Dbla.new(seq1)
+#seq = Bio::Sequence::AA.new(seq1)
 
 #get the positions of limited variability
 #puts seq.polv1
@@ -100,10 +100,10 @@ end
 #puts seq.size
 
 #if input file is a fasta file
- #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+ seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
 
 #read the file
- #Bio::FlatFile.open(seq_file).each do |entry|
-  #tag = Dbla.new(entry.seq)
-  #puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
- #end
+ Bio::FlatFile.open(seq_file).each do |entry|
+  tag = Bio::Sequence::AA.new(entry.seq)
+  puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
+ end
