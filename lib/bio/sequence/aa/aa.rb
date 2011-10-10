@@ -119,12 +119,12 @@ end
 #puts seq.size
 
 #if input file is a fasta file
- seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
+ #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
 
 #read the file
- Bio::FlatFile.open(seq_file).each do |entry|
-  tag = Bio::Sequence::AA.new(entry.seq)
-  puts tag.start_motif
-  puts tag.end_motif
+ #Bio::FlatFile.open(seq_file).each do |entry|
+  #tag = Bio::Sequence::AA.new(entry.seq)
+  #puts tag.start_motif
+  #puts tag.end_motif
   #puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
- end
+ #end
