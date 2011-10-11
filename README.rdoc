@@ -22,30 +22,30 @@ install the gem. This will install the bioruby gem if it is not already installe
  #create an instace of a new Bio::Sequence::AA class. This class simply extends the Bio::Sequence::AA class with methods
  #to classify and describe Dbla tags.
 
- seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
+ seq1 ='DIGDIVRGRDMFKSNPEVEKGLKAVFRKINNGLTPQAKTHYADEDGSGNYVKLREDWWKANRDQVWKAITCKAPQSVHYFIKTSHGTRGFTSHGKCGRNETNVPTNLDYVPQYLR'
  seq = Bio::Sequence::AA.new(seq1)
 
  #get the positions of limited variability
- puts seq.polv1
- puts seq.polv2
- puts seq.polv3
- puts seq.polv4
+ puts seq.polv1 #=> MFKS
+ puts seq.polv2 #=> LRED
+ puts seq.polv3 #=> KAIT
+ puts seq.polv4 #=> PTNL
 
  #get the number of cysteines in the tag
- puts seq.cys_count
+ puts seq.cys_count #=> 2
 
  #get the distinct sequence identifier
- puts seq.dsid
+ puts seq.dsid #=>MFKS-LRED-KAIT-2-PTNL-115
 
  #get the cyspolv group for this tag
- puts seq.cyspolv_group
+ puts seq.cyspolv_group #=> 1
 
 
  #get the block sharing group for this tag
  #puts seq.bs_group #to be implemented
 
  #get the length of the tag
- puts seq.size
+ puts seq.size #=> 115
 
  #if input file is a fasta file
  seq_file = "sequences.fasta"
