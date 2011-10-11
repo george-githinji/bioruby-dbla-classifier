@@ -1,11 +1,14 @@
 = bio-dbla-classifier
 
 DBL-alpha tags can be classified into six expression groups depending on the number of cysteines and presence of
-sequence certain motifs within the tag region (Bull et al 2007). DBLa adds methods for grouping DBL-alpha amino acid sequence tags.
-The DBLa class is a subclass of Bio::Sequence::AA. If you apply this method please quote this article
+sequence certain motifs within the tag region (Bull et al 2007). The plugin extends the Bio::Sequence::AA by
+adding methods to analyze DBLa sequences tags. If you apply this method please quote this article
 Bull et al “An approach to classifying sequence tags sampled from Plasmodium falciparum var genes..” Molecular and Biochemical Parasitology 154 (1) (July): 98–102. doi:10.1016/j.molbiopara.2007.03.011.
 
 = Installation
+ You need to have Ruby installed on your system. The gem has been tested on Ruby
+ 1.9.2-p290. See http://rubylang.info/ for information on Ruby and how to
+ install it on your system.
 
  gem install bio-dbla-classifier
 
@@ -28,7 +31,7 @@ Bull et al “An approach to classifying sequence tags sampled from Plasmodium f
  #puts seq.polv3
  #puts seq.polv4
 
- #get the number if cysteines in the tag
+ #get the number of cysteines in the tag
  #puts seq.cys_count
 
  #get the distinct sequence identifier
@@ -47,7 +50,7 @@ Bull et al “An approach to classifying sequence tags sampled from Plasmodium f
  #if input file is a fasta file
  #seq_file = "sequences.fasta"
 
- #read the file
+ #process each entry in the file
  #Bio::FlatFile.open(seq_file).each do |entry|
   #tag = Bio::Sequence::AA.new(entry.seq)
   #puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
