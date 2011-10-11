@@ -1,12 +1,12 @@
 = bio-dbla-classifier
 
-DBL-alpha tags can be classified into six expression groups depending on the number of cysteines and presence of
-sequence certain motifs within the tag region (Bull et al 2007). The plugin extends the Bio::Sequence::AA by
-adding methods to analyze DBLa sequences tags. If you apply this method please quote this article
+DBL-alpha tags are small regions of the PfEMP1 protein that can be PCR amplified and are classified into six expression groups depending on the number of cysteines and presence of
+certain motifs within the tag region (Bull et al 2007). This plugin extends bioruby's amino acid class, Bio::Sequence::AA by adding methods to analyze DBLa sequences tags.
+If you apply this method please quote,
 Bull et al “An approach to classifying sequence tags sampled from Plasmodium falciparum var genes..” Molecular and Biochemical Parasitology 154 (1) (July): 98–102. doi:10.1016/j.molbiopara.2007.03.011.
 
 = Installation
-You need to have Ruby installed on your system. The gem has been tested on Ruby 1.9.2-p290. See http://rubylang.info/ for
+You need to have Ruby installed on your system. This plugin has been tested on Ruby 1.9.2-p290. See http://rubylang.info/ for
 information on Ruby and how to install it on your system. Once Ruby 1.9.2 is installed type the following command in the terminal to
 install the gem. This will install the bioruby gem if it is not already installed on your system.
 
