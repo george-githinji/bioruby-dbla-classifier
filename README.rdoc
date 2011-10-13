@@ -46,7 +46,25 @@ install the gem. This will install the bioruby gem if it is not already installe
  #get the length of the tag
  puts dbl_seq.size #=> 115
 
- #If the input file is a fasta file
+= Finding the Position polymorphic blocks.
+
+The pspb methods take 2 arguments, an anchor position and a window length that defines the length of the pspb
+
+ #get the pspb1
+ puts seq.pspb1(0,14) #=> NPEVEKGLKAVFRK
+
+ #get the pspb2
+ puts seq.pspb2(0,14) #=> THYADEDGSGNYVK
+
+ #get the pspb3
+ puts seq.pspb3(0,14) #=> CKAPQSVHYFIKTS
+
+ #get the pspb4
+ puts seq.pspb4(0,14) #=> FTSHGKCGRNETNV
+
+= Processing fasta files
+If the input is a fasta file,
+
  seq_file = "sequences.fasta"
 
  #Process each entry in the file
