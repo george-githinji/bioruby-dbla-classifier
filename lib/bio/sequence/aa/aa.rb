@@ -41,7 +41,7 @@ class Bio::Sequence::AA
   elsif self =~ /VW/
    polv2 = self[vw_pos - 12,4]
   else
-    error = 'Did not find WW or VW motif'
+   error = 'WW or VW motif missing'
   end
   polv2 unless error
  end
@@ -49,13 +49,15 @@ class Bio::Sequence::AA
  #The third position of limited variability(polv3)
  def polv3
   if self =~ /WW/
-   polv3 = self[ww_pos + 10,4]
+    polv3 = self[ww_pos + 10,4]
   elsif self =~ /VW/
-   polv3 = self[vw_pos + 2,4]
+    polv3 = self[vw_pos + 2,4]
   else
-    error = 'Did not find WW or VW motif'
+    error = 'WW or VW motif missing'
   end
+
   polv3 unless error
+
  end
 
  #The fourth position of limited variability(polv4)
@@ -83,19 +85,52 @@ class Bio::Sequence::AA
   group
  end
 
- private
+ #position specific polymorphic block 1
+ def pspb1(anchor_pos,win_len)
+  self[14 + anchor_pos,win_len]
+ end
 
+ #position specific polymorphic block 2
+ def pspb2(anchor_pos,win_len)
+  if self =~ /WW/
+   pspb2 = self[ww_pos - 4 - anchor_pos - win_len, win_len]
+  elsif self =~ /VW/
+   pspb2 = self[vw_pos - 12 - win_len - anchor_pos, win_len]
+  else
+    error = 'WW or VW motif missing'
+  end
+  pspb2
+ end
+
+ #position specific polymorphic block 3
+ def pspb3(anchor_pos,win_len)
+  if self =~ /WW/
+    pspb3 = self[ww_pos + 14 + anchor_pos, win_len]
+  elsif self =~ /VW/
+    pspb3 = self[vw_pos + 6 + anchor_pos, win_len]
+  else
+    error = 'WW or VW motif missing'
+  end
+  pspb3
+ end
+
+ #position specific polymorphic block 4
+ def pspb4(anchor_pos,win_len)
+  self[self.length - 12 - win_len - anchor_pos, win_len]
+ end
+
+
+ private
  def accepted_length
    100..168
  end
 
 end
 
-
 #create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
 #to classify and describe Dbla properties
 
-#seq1 = 'DIGDIIRGRDLYSGNNKEKEQRKKLEKNGKTIVGKIYNEATNGQALQARYKGDDNNNYSKLREDRWTANRATIWEAITCDDDNKLSNASYVRPTSTDGQSGAQGKDKCRSANKTTGNTGDVNIVPTYFDYVPQYLR'
+#seq1 ='DIGDIVRGRDMFKSNPEVEKGLKAVFRKINNGLTPQAKTHYADEDGSGNYVKLREDWWKANRDQVWKAITCKAPQSVHYFIKTSHGTRGFTSHGKCGRNETNVPTNLDYVPQYLR'
 #seq = Bio::Sequence::AA.new(seq1)
 
 #get the positions of limited variability
@@ -119,6 +154,19 @@ end
 
 #get the length of the tag
 #puts seq.size
+
+#get the pspb1
+#puts seq.pspb1(0,14)
+
+#get the pspb2
+#puts seq.pspb2(0,14)
+
+#get the pspb3
+#puts seq.pspb3(0,14)
+
+#get the pspb4
+#puts seq.pspb4(0,14)
+
 
 #if input file is a fasta file
  #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
