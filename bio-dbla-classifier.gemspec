@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = "bio-dbla-classifier"
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George Githinji"]
-  s.date = "2011-10-10"
-  s.description = "A classification system for DBL-alpha sequence tags using the CysPolv approach described by Bull et al 2007"
+  s.date = "2011-10-13"
+  s.description = "Methods to classify and manipulate PfEMP1 DBL-alpha sequence tags"
   s.email = "georgkam@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -36,7 +36,7 @@ Gem::Specification.new do |s|
   s.licenses = ["Ruby"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
-  s.summary = "Classify PfEMP1 DBL-alpha tags using the cyspolv grouping approach"
+  s.summary = "A tool to classify and manipulate PfEMP1 DBL-alpha sequence tags"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
