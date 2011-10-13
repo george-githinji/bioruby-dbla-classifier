@@ -41,8 +41,9 @@ class Bio::Sequence::AA
   elsif self =~ /VW/
    polv2 = self[vw_pos - 12,4]
   else
+    error = 'Did not find WW or VW motif'
   end
-  polv2
+  polv2 unless error
  end
 
  #The third position of limited variability(polv3)
@@ -52,8 +53,9 @@ class Bio::Sequence::AA
   elsif self =~ /VW/
    polv3 = self[vw_pos + 2,4]
   else
+    error = 'Did not find WW or VW motif'
   end
-  polv3
+  polv3 unless error
  end
 
  #The fourth position of limited variability(polv4)
