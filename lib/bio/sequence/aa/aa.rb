@@ -86,12 +86,12 @@ class Bio::Sequence::AA
  end
 
  #position specific polymorphic block 1
- def pspb1(anchor_pos,win_len)
+ def pspb1(anchor_pos=0,win_len=14)
   self[14 + anchor_pos,win_len]
  end
 
  #position specific polymorphic block 2
- def pspb2(anchor_pos,win_len)
+ def pspb2(anchor_pos=0,win_len=14)
   if self =~ /WW/
    pspb2 = self[ww_pos - 4 - anchor_pos - win_len, win_len]
   elsif self =~ /VW/
@@ -103,7 +103,7 @@ class Bio::Sequence::AA
  end
 
  #position specific polymorphic block 3
- def pspb3(anchor_pos,win_len)
+ def pspb3(anchor_pos=0,win_len=14)
   if self =~ /WW/
     pspb3 = self[ww_pos + 14 + anchor_pos, win_len]
   elsif self =~ /VW/
@@ -115,7 +115,7 @@ class Bio::Sequence::AA
  end
 
  #position specific polymorphic block 4
- def pspb4(anchor_pos,win_len)
+ def pspb4(anchor_pos=0,win_len=14)
   self[self.length - 12 - win_len - anchor_pos, win_len]
  end
 
