@@ -47,9 +47,9 @@ install the gem. This will install the bioruby gem if it is not already installe
 
 = Finding the Position Specific Polymorphic Blocks(PSPB)
 
-The pspb methods take 2 arguments, an anchor position and a window length that defines the length of the pspb
-The default anchor position is 0
-The default window length is 14
+The pspb methods take 2 arguments, an anchor position and a window length that
+defines the length of the pspb.The default anchor position is 0 and the default
+window length is 14
 
  #get pspb1
  puts seq.pspb1 #=> NPEVEKGLKAVFRK
