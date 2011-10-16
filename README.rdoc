@@ -63,9 +63,7 @@ The default window length is 14
  #get pspb4
  puts seq.pspb4 #=> FTSHGKCGRNETNV
 
-= Processing fasta files
-
-Processing a flatfile for example fasta, genbank or embl
+= Processing a flatfile for example fasta, genbank or embl
 
  seq_file = "sequences.fasta"
 
