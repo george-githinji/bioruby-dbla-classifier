@@ -12,10 +12,6 @@ class Bio::Sequence::AA
   self[-5,self.length]
  end
 
- def dsid
-   "#{polv1}-#{polv2}-#{polv3}-#{cys_count.to_s}-#{polv4}-#{self.length}"
- end
-
  def ww_pos
   rindex("WW")
  end
@@ -36,28 +32,24 @@ class Bio::Sequence::AA
 
  #The second position of limited variability(polv2)
  def polv2
-  if self =~ /WW/
-   polv2 = self[ww_pos - 4,4]
-  elsif self =~ /VW/
-   polv2 = self[vw_pos - 12,4]
+  if !ww_missing?
+   return self[ww_pos - 4,4]
+  elsif !vw_missing?
+   return self[vw_pos - 12,4]
   else
-   error = 'WW or VW motif missing'
+   return '....'
   end
-  polv2 unless error
  end
 
  #The third position of limited variability(polv3)
  def polv3
-  if self =~ /WW/
-    polv3 = self[ww_pos + 10,4]
-  elsif self =~ /VW/
-    polv3 = self[vw_pos + 2,4]
+  if !ww_missing?
+    return self[ww_pos + 10,4]
+  elsif !vw_missing?
+    return self[vw_pos + 2,4]
   else
-    error = 'WW or VW motif missing'
+    return '....'
   end
-
-  polv3 unless error
-
  end
 
  #The fourth position of limited variability(polv4)
@@ -65,8 +57,7 @@ class Bio::Sequence::AA
   self[self.length - 12,4]
  end
 
- #Assigning dsid group based on cysteines coun and presence of
- #REY motif in polv2, MFK in polv1,
+ #Assigning dsid group based on number of cysteines, presence of REY motif in polv2 and MFK in polv1,
  def cyspolv_group
   case
    when cys_count > 4 || cys_count == 3 || cys_count < 2
@@ -85,6 +76,11 @@ class Bio::Sequence::AA
   group
  end
 
+ #distict sequence identifier(DSID)
+ def dsid
+   "#{polv1}-#{polv2}-#{polv3}-#{cys_count.to_s}-#{polv4}-#{self.length}"
+ end
+
  #position specific polymorphic block 1
  def pspb1(anchor_pos=0,win_len=14)
   self[14 + anchor_pos,win_len]
@@ -92,26 +88,24 @@ class Bio::Sequence::AA
 
  #position specific polymorphic block 2
  def pspb2(anchor_pos=0,win_len=14)
-  if self =~ /WW/
-   pspb2 = self[ww_pos - 4 - anchor_pos - win_len, win_len]
-  elsif self =~ /VW/
-   pspb2 = self[vw_pos - 12 - win_len - anchor_pos, win_len]
+  if !ww_missing?
+   return self[ww_pos - 4 - anchor_pos - win_len, win_len]
+  elsif !vw_missing?
+   return self[vw_pos - 12 - win_len - anchor_pos, win_len]
   else
-    error = 'WW or VW motif missing'
+    return '....'
   end
-  pspb2
  end
 
  #position specific polymorphic block 3
  def pspb3(anchor_pos=0,win_len=14)
-  if self =~ /WW/
-    pspb3 = self[ww_pos + 14 + anchor_pos, win_len]
-  elsif self =~ /VW/
-    pspb3 = self[vw_pos + 6 + anchor_pos, win_len]
+  if !ww_missing?
+    return self[ww_pos + 14 + anchor_pos, win_len]
+  elsif !vw_missing?
+    return self[vw_pos + 6 + anchor_pos, win_len]
   else
-    error = 'WW or VW motif missing'
+    return '....'
   end
-  pspb3
  end
 
  #position specific polymorphic block 4
@@ -119,62 +113,20 @@ class Bio::Sequence::AA
   self[self.length - 12 - win_len - anchor_pos, win_len]
  end
 
-
  private
  def accepted_length
    100..168
  end
 
+ def ww_missing?
+   true unless self =~ /WW/i
+ end
+
+ def vw_missing?
+   true unless self =~ /VW/i
+ end
+
+ def no_vw_ww?
+   true if ww_missing? && vw_missing?
+ end
 end
-
-#create an instace of a new DBL-alpha tag. A dbla tag extends the Bio::Sequence::AA class with methods
-#to classify and describe Dbla properties
-
-#seq1 ='DIGDIVRGRDMFKSNPEVEKGLKAVFRKINNGLTPQAKTHYADEDGSGNYVKLREDWWKANRDQVWKAITCKAPQSVHYFIKTSHGTRGFTSHGKCGRNETNVPTNLDYVPQYLR'
-#seq = Bio::Sequence::AA.new(seq1)
-
-#get the positions of limited variability
-#puts seq.polv1
-#puts seq.polv2
-#puts seq.polv3
-#puts seq.polv4
-
-#get the number if cysteines in the tag
-#puts seq.cys_count
-
-#get the distinct sequence identifier
-#puts seq.dsid
-
-#get the cyspolv group for this tag
-#puts seq.cyspolv_group
-
-
-#get the block sharing group for this tag
-#puts seq.bs_group #to be implemented
-
-#get the length of the tag
-#puts seq.size
-
-#get the pspb1
-#puts seq.pspb1(0,14)
-
-#get the pspb2
-#puts seq.pspb2(0,14)
-
-#get the pspb3
-#puts seq.pspb3(0,14)
-
-#get the pspb4
-#puts seq.pspb4(0,14)
-
-
-#if input file is a fasta file
- #seq_file = "#{ENV['HOME']}/sequences/878_kilifi_sequences.fasta"
-
-#read the file
- #Bio::FlatFile.open(seq_file).each do |entry|
-  #tag = Bio::Sequence::AA.new(entry.seq)
-  #puts tag.start_motif
-  #puts tag.end_motif
-  #puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
- #end
