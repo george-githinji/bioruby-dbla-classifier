@@ -65,11 +65,11 @@ The default window length is 14
 
 = Processing fasta files
 
-If the input is a fasta file,
+Processing a flatfile for example fasta, genbank or embl
 
  seq_file = "sequences.fasta"
 
- #Process each entry in the file
+ #for each entry in the file
  Bio::FlatFile.open(seq_file).each do |entry|
   tag = Bio::Sequence::AA.new(entry.seq)
   puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
