@@ -27,6 +27,10 @@ describe "Dbla" do
     @tag.start_motif == 'YIGDI'
   end
 
+  it 'should return false for var1' do
+    @tag.is_var1? == false
+  end
+
  end
 end
 
