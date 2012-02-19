@@ -77,11 +77,11 @@ class Bio::Sequence::AA
   end
 
   def var1_cp1?
-    return true if cyspolv_group == 1 && self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/
+    return true if cyspolv_group == 1 && self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/i
   end
 
   def var1_cp2?
-    return true if cyspolv_group == 2 && self =~ /APNKEKIKLEENLKK/
+    return true if cyspolv_group == 2 && self =~ /APNKEKIKLEENLKK/i
   end
 
   def is_var1?
