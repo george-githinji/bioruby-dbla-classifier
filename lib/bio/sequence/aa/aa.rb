@@ -76,6 +76,24 @@ class Bio::Sequence::AA
   group
  end
 
+ def var1_cp1?
+   return true if cyspolv_group == 1 && seq =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/
+ end
+
+ def var1_cp2?
+   return true if cyspolv_group == 2 && self =~ /APNKEKIKLEENLKK/
+ end
+
+ def is_var1?
+   return true if var1_cp1 || var1_cp2 
+ end
+
+
+#assign var1 and recode the $cys_PoLV_group to 999 for those that are var1
+#if ($cys_PoLV_group ==1) {if ($seq=~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/) {$var1_cp1=1; $cys_PoLV_group=999;}}
+#if ($cys_PoLV_group ==2) {if ($seq=~ /APNKEKIKLEENLKK/) {$var1_cp2=1;$cys_PoLV_group=999}}
+
+ 
  #distict sequence identifier(DSID)
  def dsid
    "#{polv1}-#{polv2}-#{polv3}-#{cys_count.to_s}-#{polv4}-#{self.length}"
