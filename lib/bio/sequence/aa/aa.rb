@@ -76,16 +76,16 @@ class Bio::Sequence::AA
     group
   end
 
-  def var1_cp1?
+  def is_var1_cp1?
     return true if cyspolv_group == 1 && self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/i
   end
 
-  def var1_cp2?
+  def is_var1_cp2?
     return true if cyspolv_group == 2 && self =~ /APNKEKIKLEENLKK/i
   end
 
   def is_var1?
-    return true if var1_cp1? || var1_cp2? 
+    return true if is_var1_cp1? || is_var1_cp2? 
   end
 
   #distict sequence identifier(DSID)
@@ -138,7 +138,7 @@ class Bio::Sequence::AA
     true unless self =~ /VW/i
   end
 
-  def no_vw_ww?
+  def vw_ww_missing?
     true if ww_missing? && vw_missing?
   end
 end
