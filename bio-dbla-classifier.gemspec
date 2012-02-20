@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "bio-dbla-classifier"
-  s.version = "0.5.0"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["George Githinji"]
@@ -47,12 +47,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.1.rc.7"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<rake>, ["~> 0.9.2.2"])
     else
       s.add_dependency(%q<bio>, [">= 1.4.2"])
       s.add_dependency(%q<rspec>, ["~> 2.3.0"])
       s.add_dependency(%q<bundler>, ["~> 1.1.rc.7"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<rake>, ["~> 0.9.2.2"])
     end
   else
     s.add_dependency(%q<bio>, [">= 1.4.2"])
@@ -60,6 +62,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, ["~> 1.1.rc.7"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<rake>, ["~> 0.9.2.2"])
   end
 end
 
