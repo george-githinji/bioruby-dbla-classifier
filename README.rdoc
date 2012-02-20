@@ -40,10 +40,12 @@ install the gem. This will install the bioruby gem if it is not already installe
 
 
  #get the block sharing group for this tag
- #puts dbl_seq.bs_group #to be implemented
+ puts dbl_seq.bs_group #=> 1
 
  #get the length of the tag
  puts dbl_seq.size #=> 115
+
+ dbl_seq.is_var1? #=> false
 
 = Finding the Position Specific Polymorphic Blocks(PSPB)
 
