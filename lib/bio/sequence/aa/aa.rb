@@ -86,18 +86,6 @@ class Bio::Sequence::AA
     group
   end
 
-  def is_var1_cp1?
-    return true if cyspolv_group == 1 && self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/i
-  end
-
-  def is_var1_cp2?
-    return true if cyspolv_group == 2 && self =~ /APNKEKIKLEENLKK/i
-  end
-
-  def is_var1?
-    return true if is_var1_cp1? || is_var1_cp2? 
-  end
-  
   #return the block sharing group
   def bs_group
     case
@@ -109,6 +97,23 @@ class Bio::Sequence::AA
       block_sharing = 0
     end
     block_sharing
+  end
+  
+  def is_var1_cp1?
+    return true if cyspolv_group == 1 && self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/i
+  end
+
+  def is_var1_cp2?
+    return true if cyspolv_group == 2 && self =~ /APNKEKIKLEENLKK/i
+  end
+
+  def is_var1?
+    return true if is_var1_cp1? || is_var1_cp2? 
+  end
+
+  # return var group A like tags. Group A like sequences are associated with disease severity.
+  def groupA_like?
+    return true if cys_count == 2 && bs_group == 1
   end
 
   #distict sequence identifier(DSID)
