@@ -8,7 +8,7 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    rake (0.9.2)
+    rake (0.9.2.2)
     rcov (0.9.10)
     rspec (2.3.0)
       rspec-core (~> 2.3.0)
@@ -26,5 +26,6 @@ DEPENDENCIES
   bio (>= 1.4.2)
   bundler (~> 1.1.rc.7)
   jeweler (~> 1.6.4)
+  rake (~> 0.9.2.2)
   rcov
   rspec (~> 2.3.0)
