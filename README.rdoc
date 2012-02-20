@@ -72,7 +72,7 @@ window length is 14
  #for each entry in the file
  Bio::FlatFile.open(seq_file).each do |entry|
   tag = Bio::Sequence::AA.new(entry.seq)
-  puts "#{entry.definition},#{tag.dsid},#{tag.cys_count},#{tag.cyspolv_group}"
+  puts "#{entry.definition},#{tag.cyspolv_group},#{tag.dsid},#{tag.bs_group},"
  end
 
 = Copyright
