@@ -44,8 +44,12 @@ install the gem. This will install the bioruby gem if it is not already installe
 
  #get the length of the tag
  puts dbl_seq.size #=> 115
-
+ 
+ #determine whether the tag is a var1
  dbl_seq.is_var1? #=> false
+
+ #is this tag a groupA like sequence tag?
+ dbl_seq.is_groupA_like?
 
 = Finding the Position Specific Polymorphic Blocks(PSPB)
 
