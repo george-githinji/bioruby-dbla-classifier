@@ -112,7 +112,7 @@ class Bio::Sequence::AA
   end
 
   # return var group A like tags. Group A like sequences are associated with disease severity.
-  def groupA_like?
+  def is_groupA_like?
     return true if cys_count == 2 && bs_group == 1
   end
 
