@@ -9,13 +9,13 @@ class Bio::Sequence::AA
     n_terminal_motif
   end
 
-  def n_terminal_motif
-    self[0,5]
-  end
-
   def end_motif
     warn "[DEPRECATION] 'end_motif' is deprecated.  Please use `c_terminal_motif` instead."    
     c_terminal_motif
+  end
+
+  def n_terminal_motif
+    self[0,5]
   end
 
   def c_terminal_motif
