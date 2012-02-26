@@ -1,3 +1,4 @@
+{<img src="https://secure.travis-ci.org/georgeG/bioruby-dbla-classifier.png?branch=master" alt="Build Status" />}[http://travis-ci.org/georgeG/bioruby-dbla-classifier]
 = bio-dbla-classifier
 
 DBL-alpha tags are small regions of the PfEMP1 protein that can be PCR amplified and are classified into six expression groups depending on the number of cysteines and presence of
