@@ -49,7 +49,6 @@ class Bio::Sequence::NA
     aa_seq.rindex("VW")
   end
 
-
   def ww_missing?
     true unless aa_seq =~ /WW/i
   end
@@ -62,6 +61,3 @@ class Bio::Sequence::NA
     true if ww_missing? && vw_missing?
   end
 end
-
-
-#require 'bio'

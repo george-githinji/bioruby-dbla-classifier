@@ -4,7 +4,7 @@ describe 'dbla' do
   context 'nucleic' do
     before(:each) do
       dna = 'gatataggtgatattgtaagaggaagagatctatttcatggtaatccacaagaaaaagaaaaaagagaagacttagaaaagaaattgaaagaaattttccaacaaatacatagtggattgtcgaagaacggcgcacaaacttactacaatgataatgatactgacaaaaactattacaaattacgagaagattggtggacggcgaatcgcgccacaatctgggaagctatcacatgtgaagcaaaaactgatgataaatattttagaaatacatgtaatggaggaagtccaactaaaggtgactgccgatgtgctgccggagatgttcctacatattttgactacgttccgcagtatcttcgc'
-      aa = 'DIGDIVRGRDLFHGNPQEKEKREDLEKKLKEIFQQIHSGLSKNGAQTYYNDNDTDKNYYKLREDWWTANRATIWEAITCEAKTDDKYFRNTCNGGSPTKGDCRCAAGDVPTYFDYVPQYLR'
+      aa  = 'DIGDIVRGRDLFHGNPQEKEKREDLEKKLKEIFQQIHSGLSKNGAQTYYNDNDTDKNYYKLREDWWTANRATIWEAITCEAKTDDKYFRNTCNGGSPTKGDCRCAAGDVPTYFDYVPQYLR'
       @tag_as_dna = Bio::Sequence::NA.new(dna)
       @tag_as_aa  = Bio::Sequence::AA.new(aa)
     end
