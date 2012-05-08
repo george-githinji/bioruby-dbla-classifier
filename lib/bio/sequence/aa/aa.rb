@@ -1,4 +1,7 @@
 class Bio::Sequence::AA
+  def length
+    self.length
+  end
 
   def has_accepted_length?
     true if accepted_length.include? self.length
@@ -33,6 +36,18 @@ class Bio::Sequence::AA
   #number of cysteines
   def cys_count
     scan(/C/).size
+  end
+
+  #get the 5' end of the sequence from the 'middle'
+  def polv1_to_polv2
+    #self[ww_pos - length - ww_pos, ww_pos + 2]
+    slice(0,ww_pos + 1)
+  end
+
+  #get the 3'end of the sequence from the "middle"
+  def polv3_to_polv4
+    #self[ww_pos + 2, ww_pos]
+    slice(ww_pos + 1,length)
   end
 
   #The first position of limited variability(polv1)
