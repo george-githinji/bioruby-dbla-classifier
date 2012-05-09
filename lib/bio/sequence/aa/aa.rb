@@ -40,14 +40,11 @@ class Bio::Sequence::AA
 
   #get the 5' end of the sequence from the 'middle'
   def polv1_to_polv2
-    #slice(0,ww_pos + 1)
-    slice(rindex(polv1),rindex(polv2)-6)
+    slice(rindex(polv1),rindex(polv2) - 6)
   end
 
   #get the 3'end of the sequence from the "middle"
   def polv3_to_polv4
-    #self[ww_pos + 2, ww_pos]
-    #slice(ww_pos + 1,length)
     slice(rindex(polv3),(rindex(polv4) - rindex(polv3) + 4))
   end
 
