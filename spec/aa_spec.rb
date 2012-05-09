@@ -3,8 +3,10 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "Dbla" do
   context 'Group4 Dbla tag' do
     before(:each) do
-      seq = 'YIGDIIRGRDLYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLREDWWTANRSTVWKAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYFDYVPQFLR'
-      @tag = Bio::Sequence::AA.new(seq)
+      seq1 = 'YIGDIIRGRDLYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLREDWWTANRSTVWKAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYFDYVPQFLR'
+      seq2 = 'DIGDIVRGRDLYLGYDQKEKEQREKLEKNLKDIFGDIYEELTKNGKTLQERHGSDTTNYYKLREDWRTANRHTVWEALTCEAPESAHYFKPSENNTQYFSNKYCGRDEKKVPTNLDYVPQFLR'
+      @tag = Bio::Sequence::AA.new(seq1)
+      @tag2 = Bio::Sequence::AA.new(seq2)
     end
 
     it "should return the number of cysteines" do
@@ -31,6 +33,13 @@ describe "Dbla" do
       @tag.is_var1?.should be_false
     end
 
+    it 'should return the polv1 to polv2 part of the sequence' do
+      @tag.polv1_to_polv2.should == 'LYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLRED'
+    end
+
+    it 'should return the polv3 to polv4 part of the sequence' do
+      @tag.polv3_to_polv4.should == 'KAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYF'
+    end
   end
 
   context 'Group2 Dbla tag' do
