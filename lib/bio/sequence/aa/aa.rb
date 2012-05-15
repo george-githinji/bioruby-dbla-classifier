@@ -166,7 +166,7 @@ class Bio::Sequence::AA
     self[self.length - 12 - win_len - anchor_pos, win_len]
   end
 
-  private
+  #private
   def accepted_length
     100..168
   end
