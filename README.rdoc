@@ -39,7 +39,6 @@ install the gem. This will install the bioruby gem if it is not already installe
  #get the cyspolv group for this tag
  puts dbl_seq.cyspolv_group #=> 1
 
-
  #get the block sharing group for this tag
  puts dbl_seq.bs_group #=> 1
 
@@ -69,6 +68,19 @@ window length is 14
 
  #get pspb4
  puts seq.pspb4 #=> FTSHGKCGRNETNV
+
+ #get a pspb as an amino acid
+ puts seq.pspb4_as_dna
+
+= Finding polv2 to polv3 regions
+  Only the Amino acid regions are supported for now 
+  
+  #get polv1 to polv2 region
+  puts seq.polv1_to_polv2
+
+  #get polv3 to polv4 region
+  puts seq.polv3_to_polv4
+
 
 = Processing a flatfile for example fasta, genbank or embl
 
