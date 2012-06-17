@@ -126,10 +126,11 @@ class Bio::Sequence::AA
 
   def var1_status
     if is_var1?
-      return 'pos'
+      status = 'pos'
     else
-      return 'neg'
+      status = 'neg'
     end
+    status
   end
 
   # return var group A like tags. Group A like sequences are associated with disease severity.
