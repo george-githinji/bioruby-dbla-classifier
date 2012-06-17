@@ -111,7 +111,7 @@ class Bio::Sequence::AA
     end
     block_sharing
   end
-  
+
   def is_var1_cp1?
     return true if cyspolv_group == 1 && self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/i
   end
@@ -122,6 +122,14 @@ class Bio::Sequence::AA
 
   def is_var1?
     return true if is_var1_cp1? || is_var1_cp2? 
+  end
+
+  def var1_status
+    if is_var1?
+      return 'pos'
+    else
+      return 'neg'
+    end
   end
 
   # return var group A like tags. Group A like sequences are associated with disease severity.
