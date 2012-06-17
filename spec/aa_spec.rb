@@ -59,5 +59,9 @@ describe "Dbla" do
     it 'should return false for cp2 var1' do
       @tag2.is_var1_cp2?.should be_false
     end
+
+    it 'should return pos if var1' do
+      @tag2.var1_status.should == 'neg'
+    end
   end
 end
