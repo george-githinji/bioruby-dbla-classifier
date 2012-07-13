@@ -135,6 +135,16 @@ class Bio::Sequence::AA
     return true if cys_count == 2 && bs_group == 1
   end
 
+  def groupA_status
+    if is_groupA_like?
+      status = 'pos'
+    else
+      status = 'neg'
+    end
+    status
+  end
+
+
   #distict sequence identifier(DSID)
   def dsid
     "#{polv1}-#{polv2}-#{polv3}-#{cys_count.to_s}-#{polv4}-#{self.length}"
