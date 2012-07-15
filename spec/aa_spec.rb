@@ -60,8 +60,8 @@ describe "Dbla" do
       @tag2.is_var1_cp2?.should be_false
     end
 
-    it 'should return pos if var1' do
-      @tag2.var1_status.should == 'neg'
+    it 'should return other unless var1' do
+      @tag2.var1_status.should == 'other'
     end
   end
 end
