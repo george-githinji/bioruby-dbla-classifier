@@ -123,9 +123,9 @@ class Bio::Sequence::AA
 
   def var1_status
     if is_var1?
-      status = 'pos'
+      status = 'var1'
     else
-      status = 'neg'
+      status = 'other'
     end
     status
   end
@@ -137,9 +137,9 @@ class Bio::Sequence::AA
 
   def groupA_status
     if is_groupA_like?
-      status = 'pos'
+      status = 'groupA_like'
     else
-      status = 'neg'
+      status = 'other'
     end
     status
   end
@@ -204,9 +204,9 @@ class Bio::Sequence::AA
 
   def sig2_status
     if sig2_like? 
-      sig2 = 'pos'
+      sig2 = 'sig2_like'
     else
-      sig2 = 'neg'
+      sig2 = 'other'
     end
     sig2
   end
