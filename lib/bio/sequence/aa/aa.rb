@@ -96,6 +96,23 @@ class Bio::Sequence::AA
     group
   end
 
+  def polv1_pos
+    index(polv1)
+  end
+
+  def polv2_pos
+    index(polv2)
+  end
+
+  def polv3_pos
+    index(polv3)
+  end
+
+  def polv4_pos
+    index(polv4)
+  end
+
+
   #return the block sharing group
   def bs_group
     case

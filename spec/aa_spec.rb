@@ -64,4 +64,14 @@ describe "Dbla" do
       @tag2.var1_status.should == 'other'
     end
   end
+
+  context 'mutations in tag' do
+    before(:each) do
+      seq = 'DIGDIVRGTDLFLGGPSQEKKKLEENLKKILENIKNKNTKLSTLTLEKVREYWWALNRNDVWKALTCSAPYEAQYFIKSSDKEHSFSSEYCGHHNNDDPLTNLDYVPQFLR'
+      @tag3 = Bio::Sequence::AA.new(seq)
+    end
+    it 'should return the position of polv1' do
+      @tag3.index_polv1 == 1
+    end
+  end
 end
