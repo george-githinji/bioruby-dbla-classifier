@@ -5,12 +5,12 @@ class Bio::Sequence::AA
   end
 
   def start_motif
-    warn "[DEPRECATION] 'start_motif' is deprecated.  Please use `n_terminal_motif` instead."
+    #warn "[DEPRECATION] 'start_motif' is deprecated.  Please use `n_terminal_motif` instead."
     n_terminal_motif
   end
 
   def end_motif
-    warn "[DEPRECATION] 'end_motif' is deprecated.  Please use `c_terminal_motif` instead."    
+    #warn "[DEPRECATION] 'end_motif' is deprecated.  Please use `c_terminal_motif` instead."    
     c_terminal_motif
   end
 
