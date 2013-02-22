@@ -71,7 +71,7 @@ describe "Dbla" do
       @tag3 = Bio::Sequence::AA.new(seq)
     end
     it 'should return the position of polv1' do
-      @tag3.index_polv1 == 1
+      @tag3.polv1_pos.should == 10
     end
   end
 end
