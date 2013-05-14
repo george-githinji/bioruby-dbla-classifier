@@ -54,6 +54,10 @@ class Bio::Sequence::NA
     [polv1_dna_pos, polv2_dna_pos, polv3_dna_pos, polv4_dna_pos]
   end
 
+  def homology_block_D
+    self[0,36]
+  end
+
   private
   def accepted_length
     aa_seq.accepted_length #300..500
