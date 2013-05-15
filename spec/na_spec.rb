@@ -31,11 +31,16 @@ describe 'dbla' do
       #@tag_as_dna.mut_pos = [380,369,67,62,56]
       #@tag_as_dna.polv1_dna_pos.should == -27
       #@tag_as_dna.coordinates.each do |row|
-       #puts row.to_csv
-     #end
+      #puts row.to_csv
+      #end
     end
 
     it 'should return an array of coordinates ' do
+    end
+
+    it 'should return the homology blocks' do
+       #puts tag.homology_block_D
+       #puts tag.pspb1_dna
     end
   end
 end
