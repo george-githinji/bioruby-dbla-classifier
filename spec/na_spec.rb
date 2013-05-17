@@ -39,8 +39,7 @@ describe 'dbla' do
     end
 
     it 'should return the homology blocks' do
-       #puts tag.homology_block_D
-       #puts tag.pspb1_dna
+       #puts tag.h_block_D
     end
   end
 end
