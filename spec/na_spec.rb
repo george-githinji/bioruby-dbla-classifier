@@ -38,8 +38,8 @@ describe 'dbla' do
     it 'should return an array of coordinates ' do
     end
 
-    it 'should return the homology blocks' do
-       #puts tag.h_block_D
+    it 'should return the D homology block' do
+        puts @tag_as_dna.h_block_D
     end
   end
 end
