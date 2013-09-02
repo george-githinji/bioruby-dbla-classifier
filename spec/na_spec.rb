@@ -39,7 +39,7 @@ describe 'dbla' do
     end
 
     it 'should return the D homology block' do
-        puts @tag_as_dna.h_block_D
+        #puts @tag_as_dna.h_block_D
     end
   end
 end
