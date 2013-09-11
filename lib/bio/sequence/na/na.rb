@@ -55,12 +55,12 @@ class Bio::Sequence::NA
   end
 
   #return the homology block D
-  def h_block_D
+  def block_D
     self[0,36]
   end
 
   #return the sequences in homology block E
-  def h_block_H
+  def block_H
     self[-36..-1]
   end
 
