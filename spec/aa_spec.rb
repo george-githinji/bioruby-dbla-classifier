@@ -48,7 +48,7 @@ describe "Dbla" do
       @tag2 = Bio::Sequence::AA.new(seq)
     end
 
-    it 'should return the number of cysteines' do 
+    it 'should return the number of cysteines' do
       @tag2.cys_count.should == 2
     end
 
@@ -73,5 +73,15 @@ describe "Dbla" do
     it 'should return the position of polv1' do
       @tag3.polv1_pos.should == 10
     end
+  end
+
+  context 'bs1 and bs2 in same sequence' do
+    before(:each) do
+      seq = 'DIGDDDDVEKGLKIVFEKREYWWPNKCRCEDANADQVVALKHYKDDTKNYYQPQFLR'
+      @tag4 = Bio::Sequence::AA.new(seq)
+    end
+      it 'should return both bs1 and bs2 blocks if present in the same sequence' do
+        @tag4.is_bs1_and_bs2?.should be_true
+      end
   end
 end
