@@ -55,15 +55,28 @@ class Bio::Sequence::NA
   end
 
   #return the homology block D
-  def block_D
-    self[0,36]
-  end
+  #def block_D
+   # self[0,36]
+  #end
 
   #return the sequences in homology block E
-  def block_H
-    self[-36..-1]
+  #def block_H
+   # self[-36..-1]
+  #end
+
+  def block_D
+   self[0, (aa_seq.polv1_pos * 3) + 6]
   end
 
+  def block_H
+    self[(aa_seq.polv4_pos * 3)..-1]
+  end
+
+  #catch all methof missing.
+  #TODO: do i really need it?
+  def method_missing(m,*args, &block)
+    puts 'undefined block'
+  end
 
   private
   def accepted_length
