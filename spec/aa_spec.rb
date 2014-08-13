@@ -5,11 +5,9 @@ describe "Dbla" do
     before(:each) do
       seq1 = 'YIGDIIRGRDLYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLREDWWTANRSTVWKAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYFDYVPQFLR'
       seq2 = 'DIGDIVRGRDLYLGYDQKEKEQREKLEKNLKDIFGDIYEELTKNGKTLQERHGSDTTNYYKLREDWRTANRHTVWEALTCEAPESAHYFKPSENNTQYFSNKYCGRDEKKVPTNLDYVPQFLR'
-      seq3 = 'DIGDIVRGKDMFKPNTVDKVQKGLKIVFQKINNSLNNRGIHNYDDDGPHYYKLREDWWTVNRNQVWEAITCGALPKSAYFMQSEDNKQLFSNPKCGHGDKDVPTNLDYVPQYLR'
 
       @tag  = Bio::Sequence::AA.new(seq1)
       @tag2 = Bio::Sequence::AA.new(seq2)
-      @tag3 = Bio::Sequence::AA.new(seq3)
     end
 
     it "should return the number of cysteines" do
@@ -43,6 +41,18 @@ describe "Dbla" do
     it 'should return the polv3 to polv4 part of the sequence' do
       @tag.polv3_to_polv4.should == 'KAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYF'
     end
+  end
+
+  context 'group a like tags' do
+    before(:each) do
+    seq3 = 'DIGDIVRGKDMFKPNTVDKVQKGLKIVFQKINNSLNNRGIHNYDDDGPHYYKLREDWWTVNRNQVWEAITCGALPKSAYFMQSEDNKQLFSNPKCGHGDKDVPTNLDYVPQYLR'
+    @tag3 = Bio::Sequence::AA.new(seq3)
+    end
+
+    it 'should be regarded as a groupA-like' do
+      @tag3.groupA_status.should == 'groupA_like'
+    end
+
   end
 
   context 'Group2 Dbla tag' do
