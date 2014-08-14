@@ -11,46 +11,46 @@ describe "Dbla" do
     end
 
     it "should return the number of cysteines" do
-      @tag.cys_count.should == 4
+      expect(@tag.cys_count).to eq(4)
     end
 
     it 'should return a dsid' do
-      @tag.dsid.should == 'LYLV-LRED-KAIT-4-PTYF-126'
+      expect(@tag.dsid).to eq('LYLV-LRED-KAIT-4-PTYF-126')
     end
 
     it 'should return the cyspolv group' do
-      @tag.cyspolv_group.should == 4
+      expect(@tag.cyspolv_group).to eq(4)
     end
 
     it 'should return the length' do
-      @tag.length.should == 126
+     expect(@tag.length).to eq(126)
     end
 
     it 'should return the start motif' do
-      @tag.start_motif.should == 'YIGDI'
+      expect(@tag.start_motif).to eq('YIGDI')
     end
 
     it 'should return false for var1' do
-      @tag.is_var1?.should be_false
+      expect(@tag.is_var1?).to be false
     end
 
     it 'should return the polv1 to polv2 part of the sequence' do
-      @tag.polv1_to_polv2.should == 'LYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLRED'
+      expect(@tag.polv1_to_polv2).to eq('LYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLRED')
     end
 
     it 'should return the polv3 to polv4 part of the sequence' do
-      @tag.polv3_to_polv4.should == 'KAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYF'
+      expect(@tag.polv3_to_polv4).to eq('KAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYF')
     end
   end
 
-  context 'group a like tags' do
+  context 'groupA-like tags' do
     before(:each) do
     seq3 = 'DIGDIVRGKDMFKPNTVDKVQKGLKIVFQKINNSLNNRGIHNYDDDGPHYYKLREDWWTVNRNQVWEAITCGALPKSAYFMQSEDNKQLFSNPKCGHGDKDVPTNLDYVPQYLR'
     @tag3 = Bio::Sequence::AA.new(seq3)
     end
 
     it 'should be regarded as a groupA-like' do
-      @tag3.groupA_status.should == 'groupA_like'
+     expect(@tag3.groupA_status).to eq('groupA_like')
     end
 
   end
@@ -62,19 +62,19 @@ describe "Dbla" do
     end
 
     it 'should return the number of cysteines' do
-      @tag2.cys_count.should == 2
+      expect(@tag2.cys_count).to eq(2)
     end
 
     it 'should return the block sharing group 1' do
-      @tag2.bs_group.should == 1
+      expect(@tag2.bs_group).to eq(1)
     end
 
     it 'should return false for cp2 var1' do
-      @tag2.is_var1_cp2?.should be_false
+      expect(@tag2.is_var1_cp2?).to be false
     end
 
     it 'should return other unless var1' do
-      @tag2.var1_status.should == 'other'
+      expect(@tag2.var1_status).to eq('other')
     end
   end
 
@@ -84,7 +84,7 @@ describe "Dbla" do
       @tag3 = Bio::Sequence::AA.new(seq)
     end
     it 'should return the position of polv1' do
-      @tag3.polv1_pos.should == 10
+     expect(@tag3.polv1_pos).to eq(10)
     end
   end
 
@@ -94,7 +94,7 @@ describe "Dbla" do
       @tag4 = Bio::Sequence::AA.new(seq)
     end
       it 'should return both bs1 and bs2 blocks if present in the same sequence' do
-        @tag4.is_bs1_and_bs2?.should be_true
+        expect(@tag4.is_bs1_and_bs2?).to be true
       end
   end
 end
