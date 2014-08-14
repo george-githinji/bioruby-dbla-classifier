@@ -12,19 +12,19 @@ describe 'dbla' do
     end
 
     it 'should return the pspb1 in dna format' do
-      Bio::Sequence::NA.new(@tag_as_dna.pspb1_dna).translate.should == @tag_as_aa.pspb1
+      expect(Bio::Sequence::NA.new(@tag_as_dna.pspb1_dna).translate).to eq(@tag_as_aa.pspb1)
     end
 
     it 'should return the pspb2 in dna format' do
-      Bio::Sequence::NA.new(@tag_as_dna.pspb2_dna).translate.should == @tag_as_aa.pspb2
+    expect(Bio::Sequence::NA.new(@tag_as_dna.pspb2_dna).translate).to eq(@tag_as_aa.pspb2)
     end
 
     it 'should return the pspb3 in dna format' do
-      Bio::Sequence::NA.new(@tag_as_dna.pspb3_dna).translate.should == @tag_as_aa.pspb3
+      expect(Bio::Sequence::NA.new(@tag_as_dna.pspb3_dna).translate).to eq(@tag_as_aa.pspb3)
     end
 
     it 'should return the pspb4 in dna format' do
-      Bio::Sequence::NA.new(@tag_as_dna.pspb4_dna).translate.should == @tag_as_aa.pspb4
+      expect(Bio::Sequence::NA.new(@tag_as_dna.pspb4_dna).translate).to  eq(@tag_as_aa.pspb4)
     end
 
     it 'should return distance from anchor point given a position' do

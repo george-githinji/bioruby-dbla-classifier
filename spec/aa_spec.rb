@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "Dbla" do
-  context 'Group4 Dbla tag' do
+describe "DBL-alpha sequence ta" do
+  context 'A CP4 DBL-alpha tag' do
     before(:each) do
       seq1 = 'YIGDIIRGRDLYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLREDWWTANRSTVWKAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYFDYVPQFLR'
       seq2 = 'DIGDIVRGRDLYLGYDQKEKEQREKLEKNLKDIFGDIYEELTKNGKTLQERHGSDTTNYYKLREDWRTANRHTVWEALTCEAPESAHYFKPSENNTQYFSNKYCGRDEKKVPTNLDYVPQFLR'
@@ -30,7 +30,7 @@ describe "Dbla" do
       expect(@tag.start_motif).to eq('YIGDI')
     end
 
-    it 'should return false for var1' do
+    it 'should return false if sequences is a var1' do
       expect(@tag.is_var1?).to be false
     end
 
@@ -55,7 +55,7 @@ describe "Dbla" do
 
   end
 
-  context 'Group2 Dbla tag' do
+  context 'CP2 DBL-alpha tags' do
     before(:each) do
       seq = 'DIGDIVRGTDLFLGGPSQEKKKLEENLKKILENIKNKNTKLSTLTLEKVREYWWALNRNDVWKALTCSAPYEAQYFIKSSDKEHSFSSEYCGHHNNDDPLTNLDYVPQFLR'
       @tag2 = Bio::Sequence::AA.new(seq)
