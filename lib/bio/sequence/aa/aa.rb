@@ -92,7 +92,7 @@ class Bio::Sequence::AA
     when cys_count == 2 && polv1 =~ /MFK/i
       group = 1
     when cys_count == 2 && polv2 =~ /REY/i
-      group =2
+      group = 2
     else
       group = 3
     end
@@ -133,11 +133,11 @@ class Bio::Sequence::AA
   end
 
   def is_var1_cp1?
-    return true if cyspolv_group == 1 && self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/i
+    true if (cyspolv_group == 1) && (self =~ /NVHDKVEKGLREVF|NVHDKVETGLREVF/i)
   end
 
   def is_var1_cp2?
-    return true if cyspolv_group == 2 && self =~ /APNKEKIKLEENLKK/i
+    true if (cyspolv_group == 2) && (self =~ /APNKEKIKLEENLKK/i)
   end
 
   def is_var1?
@@ -148,7 +148,7 @@ class Bio::Sequence::AA
     if is_var1?
       status = 'var1'
     else
-      status = 'other'
+      status = 'not var 1'
     end
     status
   end
@@ -160,9 +160,9 @@ class Bio::Sequence::AA
 
   def groupA_status
     if is_groupA_like?
-      status = 'groupA_like'
+      status = 'group-A'
     else
-      status = 'other'
+      status = 'non-group-A'
     end
     status
   end
@@ -230,9 +230,9 @@ class Bio::Sequence::AA
 
   def sig2_status
     if sig2_like?
-      sig2 = 'sig2_like'
+      sig2 = 'sig2'
     else
-      sig2 = 'other'
+      sig2 = 'non-sig2'
     end
     sig2
   end
