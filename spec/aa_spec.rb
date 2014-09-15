@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe "DBL-alpha sequence ta" do
-  context 'A CP4 DBL-alpha tag' do
+describe "DBL-alpha sequence tag" do
+  context 'CP4 tag' do
     before(:each) do
       seq1 = 'YIGDIIRGRDLYLVNPQEKEQRDKLEENLKKIFKKIHDDVMKTSGRTNGAKARYGGDENFFKLREDWWTANRSTVWKAITCGTHDGASYFRATCSDGQSGAQAKNKCTCNNGDVPTYFDYVPQFLR'
       seq2 = 'DIGDIVRGRDLYLGYDQKEKEQREKLEKNLKDIFGDIYEELTKNGKTLQERHGSDTTNYYKLREDWRTANRHTVWEALTCEAPESAHYFKPSENNTQYFSNKYCGRDEKKVPTNLDYVPQFLR'
@@ -30,7 +30,7 @@ describe "DBL-alpha sequence ta" do
       expect(@tag.start_motif).to eq('YIGDI')
     end
 
-    it 'should return false if sequences is a var1' do
+    it 'should return true if sequence is a var1' do
       expect(@tag.is_var1?).to be false
     end
 
