@@ -68,9 +68,13 @@ class Bio::Sequence::NA
     self[0, (aa_seq.polv1_pos * 3) + 6]
   end
 
+  #+14 aa at the end of PSPB1
+  #def block_E
+  #end
+
   def block_F
-    mystart = self.index(pspb2_dna) + 43
-    myend = self.index(pspb3_dna)
+    mystart = index(pspb2_dna) + 42
+    myend   = index(pspb3_dna)
     self[mystart..myend]
   end
 
