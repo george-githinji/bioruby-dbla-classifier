@@ -56,21 +56,28 @@ class Bio::Sequence::NA
 
   #return the homology block D
   #def block_D
-   # self[0,36]
+  # self[0,36]
   #end
 
   #return the sequences in homology block E
   #def block_H
-   # self[-36..-1]
+  # self[-36..-1]
   #end
 
   def block_D
-   self[0, (aa_seq.polv1_pos * 3) + 6]
+    self[0, (aa_seq.polv1_pos * 3) + 6]
+  end
+
+  def block_F
+    mystart = self.index(pspb2_dna) + 43
+    myend = self.index(pspb3_dna)
+    self[mystart..myend]
   end
 
   def block_H
     self[(aa_seq.polv4_pos * 3)..-1]
   end
+
 
   #catch all methof missing.
   #TODO: do i really need it?
