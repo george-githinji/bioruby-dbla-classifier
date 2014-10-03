@@ -148,21 +148,21 @@ class Bio::Sequence::AA
     if is_var1?
       status = 'var1'
     else
-      status = 'not var 1'
+      status = 'not-var-1'
     end
     status
   end
 
   # return var group A like tags. Group A like sequences are associated with disease severity.
   def is_groupA_like?
-    return true if (cys_count == 2 && bs_group == 1) or (cyspolv_group == 1)
+    true if (cys_count == 2 && bs_group == 1) || cyspolv_group == 1 #&& ( cyspolv_group == 1)
   end
 
   def groupA_status
     if is_groupA_like?
-      status = 'group-A'
+      status = 'A'
     else
-      status = 'non-group-A'
+      status = 'other'
     end
     status
   end
